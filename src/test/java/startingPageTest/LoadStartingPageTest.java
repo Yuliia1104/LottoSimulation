@@ -8,5 +8,14 @@ The URL is equal to https://lottosimulation.com/.
 “Free Lottery Simulation” header is displayed.
  */
 
-public class LoadStartingPageTest {
+import baseTest.BaseTest;
+import org.junit.Test;
+
+public class LoadStartingPageTest extends BaseTest {
+@Test
+    public  void loadStartPage(){
+    startingPage.openStartingPage()
+            .checkUrl()
+            .checkMailTitle();
+}
 }
