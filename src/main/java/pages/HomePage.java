@@ -7,34 +7,40 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class StartingPage extends ParentPage {
+public class HomePage extends ParentPage {
+    Logger logger = Logger.getLogger(getClass());
     @FindBy(xpath = ".//h1[contains(text(),'Free Lottery Simulation')]")
     private WebElement mainTitle;
-    public StartingPage(WebDriver webDriver) {
+
+    public HomePage(WebDriver webDriver) {
         super(webDriver);
     }
-    Logger logger = Logger.getLogger(getClass());
-    public StartingPage openStartingPage() {
+
+    @Override
+    protected String getRelativeUrl() {
+        return "/";
+    }
+
+    public HomePage openHomePage() {
         try {
-            webDriver.get(baseURL);
+            webDriver.get(base_url + getRelativeUrl());
             logger.info("Website Lotto Simulation is open");
-            logger.info(baseURL);
         } catch (Exception e) {
             logger.error("Fails open website");
-            Assert.fail("Cannot open website"+e);
+            Assert.fail("Cannot open website" + e);
         }
         return this;
     }
 
-    public StartingPage checkUrl(){
-        Assert.assertEquals("URL does not match", baseURL, webDriver.getCurrentUrl());
-        logger.info("URL is equal " + baseURL);
+    public HomePage checkUrl() {
+        checkURL();
+        logger.info("URL is equal " + base_url+getRelativeUrl());
         return this;
     }
 
-public StartingPage checkMailTitle(){
-        Assert.assertTrue(mainTitle+" is not displayed", isElementDisplayed(mainTitle));
+    public HomePage checkMailTitle() {
+        Assert.assertTrue(mainTitle + " is not displayed", isElementDisplayed(mainTitle));
         forTextComparing(TestData.MAIN_TITLE, mainTitle);
         return this;
-}
+    }
 }

@@ -1,12 +1,20 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
-public class ParentPage extends CommonActionWithElements {
-    String baseURL = "https://lottosimulation.com/";
+public abstract class ParentPage extends CommonActionWithElements {
+    protected String base_url;
 
     public ParentPage(WebDriver webDriver) {
         super(webDriver);
+        base_url = configProperties.base_url();
+    }
+
+    protected abstract String getRelativeUrl();
+
+    public void checkURL() {
+        Assert.assertEquals("Invalid URL", base_url + getRelativeUrl(), webDriver.getCurrentUrl());
     }
 
 }
