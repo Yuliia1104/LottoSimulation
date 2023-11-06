@@ -13,14 +13,16 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.safari.SafariDriver;
-import pages.StartingPage;
+import pages.HomePage;
+import pages.elements.HeaderElements;
 
 import java.time.Duration;
 
 public class BaseTest {
     protected WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
-    protected StartingPage startingPage;
+    protected HomePage homePage;
+    protected HeaderElements headerElements;
 
     @Before
     public void setup() {
@@ -28,7 +30,8 @@ public class BaseTest {
         webDriver = initDriver();
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        startingPage = new StartingPage(webDriver);
+        homePage = new HomePage(webDriver);
+        headerElements = new HeaderElements(webDriver);
     }
 
     @After

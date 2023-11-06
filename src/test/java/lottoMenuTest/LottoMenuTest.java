@@ -1,4 +1,8 @@
 package lottoMenuTest;
+
+import baseTest.BaseTest;
+import org.junit.Test;
+
 /*
 Verify Lotto Menu options are present on starting page
 Steps:
@@ -21,5 +25,13 @@ Expected result: .//*[@class='dropdownRoot']//*[@data-dropdown='eu']//li
 The Europe option displays 2 sub-options: Euro Millions and Euro Jackpot when hovered over.
 
  */
-public class LottoMenuTest {
+public class LottoMenuTest extends BaseTest {
+    @Test
+    public void menuOptionsVerification(){
+        headerElements.openHomePage()
+                      .checkMainMenu()
+                      .checkSubMenuForAustaria()
+                      .checkSubMenuForUS()
+                      .checkSubMenuForEU();
+    }
 }
