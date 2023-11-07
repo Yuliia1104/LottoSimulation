@@ -1,48 +1,55 @@
 package lottoMenuTest;
 
 import baseTest.BaseTest;
+import libs.TestData;
 import org.junit.Test;
 
+import static libs.TestData.*;
+
 /*
-Verify that "Australia" menu options are clickable and transfer user to the chosen option.
-1. Open the link: https://lottosimulation.com/
-c
-The website loads the home page.
-The URL is equal to https://lottosimulation.com/.
-“Free Lottery Simulation” header is displayed.
-2. Hover "Australia" tab and click on Powerball option.
-Expected Result:
-User is transferred to the Powerball page. The header is present on the page and is equal to “Simulate playing the Australian Powerball”.
-The URL is equal to https://lottosimulation.com/au/powerball
-3. Hover "Australia" tab and click on Oz Lotto option.
-Expected Result:
-User is transferred to the Oz Lotto page. The header is present on the page and is equal to “Simulate playing Oz Lotto Australia”.
-The URL is equal to https://lottosimulation.com/au/oz-lotto
-4. Hover "Australia" tab and click on Saturday Lotto option.
-Expected Result:
-User is transferred to the Saturday Lotto page. The header is present on the page and is equal to “Simulate playing Saturday Lotto Australia”.
-The URL is equal to https://lottosimulation.com/au/lotto-sat
-5. Hover "Australia" tab and click on Monday & Wednesday Lotto option.
-Expected Result:
-User is transferred to the Monday & Wednesday Lotto page. The header is present on the page and is equal to “Simulate playing Monday & Wednesday Lotto Australia”.
-The URL is equal to https://lottosimulation.com/au/lotto-mon-wed
+Verify "Australia" Menu Options are Clickable and Redirect to the Chosen Option
+1. Steps:
+    1. Open the link: https://lottosimulation.com/
+    - The website loads the home page.
+    - The URL is equal to https://lottosimulation.com/.
+    - The "Free Lottery Simulation" header is displayed.
+    2. Hover over the "Australia" tab and click on the "Powerball" option.
+    - Expected Result:
+      - The user is transferred to the Powerball page.
+      - The header on the page is present and matches the text "Simulate playing the Australian Powerball."
+      - The URL is equal to https://lottosimulation.com/au/powerball.
+    3. Hover over the "Australia" tab and click on the "Oz Lotto" option.
+    - Expected Result:
+      - The user is transferred to the Oz Lotto page.
+      - The header on the page is present and matches the text "Simulate playing Oz Lotto Australia."
+      - The URL is equal to https://lottosimulation.com/au/oz-lotto.
+    4. Hover over the "Australia" tab and click on the "Saturday Lotto" option.
+    - Expected Result:
+      - The user is transferred to the Saturday Lotto page.
+      - The header on the page is present and matches the text "Simulate playing Saturday Lotto Australia."
+      - The URL is equal to https://lottosimulation.com/au/lotto-sat.
+    5. Hover over the "Australia" tab and click on the "Monday & Wednesday Lotto" option.
+    - Expected Result:
+      - The user is transferred to the Monday & Wednesday Lotto page.
+      - The header on the page is present and matches the text "Simulate playing Monday & Wednesday Lotto Australia."
+      - The URL is equal to https://lottosimulation.com/au/lotto-mon-wed.
  */
 public class AustraliaOptionsAccessTest extends BaseTest {
     @Test
     public void AustraliaSubMenuOptionAccessibility(){
-        headerElements.openHomePage()
+        headerElements.openHomePage(MAIN_TITLE)
                 .hoverOnAustralia_Element()
                 .clickPowerballOption()
-                .checkIsRedirectedToAustralianPowerballLotto();
+                .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE);
         headerElements.hoverOnAustralia_Element()
                 .clickOZLottoOption()
-                .checkIsRedirectedToAustralianOzlLotto();
+                .checkIsRedirectedToAustralianOzlLotto(AUSTRALIA_OZ_LOTTO_TITLE);
         headerElements.hoverOnAustralia_Element()
                 .clickSaturdayLottoOption()
-                .checkIsRedirectedToAustrSaturdayLottoOption();
+                .checkIsRedirectedToAustrSaturdayLottoOption(AUSTRALIA_SATURDAY_LOTTO_TITLE);
         headerElements.hoverOnAustralia_Element()
                 .clickMondAndWednLottoOption()
-                .checkIsRedirectedToAustrMondAndWednLotto();
+                .checkIsRedirectedToAustrMondAndWednLotto(AUSTRALIA_MON_AND_WEDN_LOTTO_TITLE);
     }
 }
 

@@ -20,10 +20,10 @@ public class AustraliaOzLottoPage extends ParentPage{
         return "/au/oz-lotto";
     }
 
-    public AustraliaOzLottoPage checkIsRedirectedToAustralianOzlLotto(){
+    public AustraliaOzLottoPage checkIsRedirectedToAustralianOzlLotto(String title){
         checkURL();
         isElementDisplayed(mainTitleAustrOzLotto);
-        forTextComparing(AUSTRALIA_OZ_LOTTO_TITLE, mainTitleAustrOzLotto);
+        forTextComparing(title, mainTitleAustrOzLotto);
         logger.info("----------");
         return this;
     }

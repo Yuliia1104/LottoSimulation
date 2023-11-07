@@ -19,10 +19,10 @@ public class AustraliaSaturdayLottoPage extends ParentPage{
         return "/au/lotto-sat";
     }
 
-    public AustraliaSaturdayLottoPage checkIsRedirectedToAustrSaturdayLottoOption(){
+    public AustraliaSaturdayLottoPage checkIsRedirectedToAustrSaturdayLottoOption(String title){
         checkURL();
         isElementDisplayed(mainTitleAustrSaturdayLotto);
-        forTextComparing(AUSTRALIA_SATURDAY_LOTTO_TITLE, mainTitleAustrSaturdayLotto);
+        forTextComparing(title, mainTitleAustrSaturdayLotto);
         logger.info("----------");
         return this;
     }

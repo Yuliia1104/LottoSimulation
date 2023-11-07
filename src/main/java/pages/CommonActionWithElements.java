@@ -5,6 +5,7 @@ import libs.ConfigProperties;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -82,6 +83,11 @@ public class CommonActionWithElements {
         } catch (Exception e) {
             printErrorAndStopTest(e);
         }
+    }
+
+    public void scrollToElemnt(WebElement webElement) {
+//        WebElement webElement = webDriver.findElement(By.xpath(".//h1[contains(text(), '5')]"));
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", webElement);
     }
 
     protected void printErrorAndStopTest(Exception e) {

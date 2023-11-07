@@ -49,22 +49,22 @@ public class HeaderElements extends ParentPage {
         return "/";
     }
 
-    public HeaderElements openHomePage() {
+    public HeaderElements openHomePage(String text) {
         homePage.openHomePage()
                 .checkUrl()
-                .checkMailTitle();
+                .checkMailTitle(text);
         return this;
     }
 
-    public HeaderElements checkMainMenu() {
+    public HeaderElements checkMainMenu(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : mainMenuItems) {
             actualList.add(webElement.getText());
         }
 
         SoftAssertions softAssertions = new SoftAssertions();
-        for (int i = 0; i < MAIN_MENU_ITEMS.size(); i++) {
-            softAssertions.assertThat(MAIN_MENU_ITEMS.get(i)).as(MAIN_MENU_ITEMS.get(i) + " does not find its match").isIn(actualList);
+        for (int i = 0; i < expevtedData.size(); i++) {
+            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
         }
         logger.info("Menu options are verified");
         logger.info("----------");
@@ -74,19 +74,19 @@ public class HeaderElements extends ParentPage {
 
     public HeaderElements hoverOnAustralia_Element(){
         hoverOverElement(australiaOption);
-        webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuAustralia));
+        webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(australianPowerball));
         return this;
     }
-    public HeaderElements checkSubMenuForAustaria() {
+    public HeaderElements checkSubMenuForAustaria(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuAustralia) {
             actualList.add(webElement.getText().trim());
         }
 
         SoftAssertions softAssertions = new SoftAssertions();
-        for (int i = 0; i < SUB_MENU_AUSTRALIA.size(); i++) {
-            softAssertions.assertThat(SUB_MENU_AUSTRALIA.get(i)).as(SUB_MENU_AUSTRALIA.get(i) + " does not find its match").isIn(actualList);
-            logger.info(SUB_MENU_AUSTRALIA.get(i)+" matches with "+actualList.get(i));
+        for (int i = 0; i < expevtedData.size(); i++) {
+            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+            logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
         softAssertions.assertAll();
@@ -98,16 +98,16 @@ public class HeaderElements extends ParentPage {
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuUS));
         return this;
     }
-    public HeaderElements checkSubMenuForUS() {
+    public HeaderElements checkSubMenuForUS(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuUS) {
             actualList.add(webElement.getText().trim());
         }
 
         SoftAssertions softAssertions = new SoftAssertions();
-        for (int i = 0; i < SUB_MENU_US.size(); i++) {
-            softAssertions.assertThat(SUB_MENU_US.get(i)).as(SUB_MENU_US.get(i) + " does not find its match").isIn(actualList);
-            logger.info(SUB_MENU_US.get(i)+" matches with "+actualList.get(i));
+        for (int i = 0; i < expevtedData.size(); i++) {
+            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+            logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
         softAssertions.assertAll();
@@ -119,7 +119,7 @@ public class HeaderElements extends ParentPage {
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
         return this;
     }
-    public HeaderElements checkSubMenuForEU() {
+    public HeaderElements checkSubMenuForEU(ArrayList<String> expevtedData) {
         hoverOverElement(europeOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
 
@@ -129,9 +129,9 @@ public class HeaderElements extends ParentPage {
         }
 
         SoftAssertions softAssertions = new SoftAssertions();
-        for (int i = 0; i < SUB_MENU_EU.size(); i++) {
-            softAssertions.assertThat(SUB_MENU_EU.get(i)).as(SUB_MENU_EU.get(i) + " does not find its match").isIn(actualList);
-            logger.info(SUB_MENU_EU.get(i)+" matches with "+actualList.get(i));
+        for (int i = 0; i < expevtedData.size(); i++) {
+            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+            logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
         softAssertions.assertAll();
