@@ -21,10 +21,10 @@ public class AustrMondAndWednLottoPage extends ParentPage{
         return "/au/lotto-mon-wed";
     }
 
-    public AustrMondAndWednLottoPage checkIsRedirectedToAustrMondAndWednLotto(){
+    public AustrMondAndWednLottoPage checkIsRedirectedToAustrMondAndWednLotto(String title){
         checkURL();
         isElementDisplayed(mainTitleMondAndWedn);
-        forTextComparing(AUSTRALIA_MON_AND_WEDN_LOTTO_TITLE, mainTitleMondAndWedn);
+        forTextComparing(title, mainTitleMondAndWedn);
         logger.info("----------");
         return this;
     }

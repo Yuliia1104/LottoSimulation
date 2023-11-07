@@ -1,6 +1,5 @@
 package pages;
 
-import libs.TestData;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -34,13 +33,12 @@ public class HomePage extends ParentPage {
 
     public HomePage checkUrl() {
         checkURL();
-        // logger.info("URL is equal " + base_url+getRelativeUrl());
         return this;
     }
 
-    public HomePage checkMailTitle() {
+    public HomePage checkMailTitle(String text) {
         Assert.assertTrue(mainTitle + " is not displayed", isElementDisplayed(mainTitle));
-        forTextComparing(TestData.MAIN_TITLE, mainTitle);
+        forTextComparing(text, mainTitle);
         return this;
     }
 }
