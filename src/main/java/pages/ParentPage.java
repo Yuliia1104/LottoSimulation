@@ -15,6 +15,8 @@ public abstract class ParentPage extends CommonActionWithElements {
 
     public void checkURL() {
         Assert.assertEquals("Invalid URL", base_url + getRelativeUrl(), webDriver.getCurrentUrl());
+        logger.info("URL is equal " + base_url+getRelativeUrl());
     }
 
 }
+

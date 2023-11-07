@@ -27,11 +27,14 @@ The Europe option displays 2 sub-options: Euro Millions and Euro Jackpot when ho
  */
 public class LottoMenuTest extends BaseTest {
     @Test
-    public void menuOptionsVerification(){
+    public void menuOptionsVerification() {
         headerElements.openHomePage()
-                      .checkMainMenu()
-                      .checkSubMenuForAustaria()
-                      .checkSubMenuForUS()
-                      .checkSubMenuForEU();
+                .checkMainMenu()
+                .hoverOnAustralia_Element()
+                .checkSubMenuForAustaria()
+                .hoverOnUS_Element()
+                .checkSubMenuForUS()
+                .hoverOnEU_Element()
+                .checkSubMenuForEU();
     }
 }
