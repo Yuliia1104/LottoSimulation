@@ -4,20 +4,23 @@ import org.aeonbits.owner.ConfigFactory;
 import libs.ConfigProperties;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
 import java.time.Duration;
 
 public class CommonActionWithElements {
+
     protected WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass());
     protected WebDriverWait webDriverWait15, webDriverWait30;
     public static ConfigProperties configProperties = ConfigFactory.create(ConfigProperties.class);
+
     public CommonActionWithElements(WebDriver webDriver) {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
@@ -59,6 +62,31 @@ public class CommonActionWithElements {
         } catch (Exception e) {
             return "";
         }
+    }
+
+    protected void clickOnElement(WebElement webElement) {
+        try {
+            webDriverWait15.until(ExpectedConditions.elementToBeClickable(webElement));
+            String name = getElementName(webElement);
+            webElement.click();
+            logger.info( name +" element is clicked");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    protected void clickOnElement(String xpath) {
+        try {
+            clickOnElement(webDriver.findElement(By.xpath(xpath)));
+            logger.info("Element is clicked ");
+        } catch (Exception e) {
+            printErrorAndStopTest(e);
+        }
+    }
+
+    protected void printErrorAndStopTest(Exception e) {
+        logger.error("Cannot work with element " + e);
+        Assert.fail("Cannot work with element " + e);
     }
 
     public static void waitABit(Integer second){

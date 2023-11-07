@@ -34,7 +34,7 @@ public class HomePage extends ParentPage {
 
     public HomePage checkUrl() {
         checkURL();
-        logger.info("URL is equal " + base_url+getRelativeUrl());
+        // logger.info("URL is equal " + base_url+getRelativeUrl());
         return this;
     }
 

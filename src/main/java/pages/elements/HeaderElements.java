@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import pages.HomePage;
-import pages.ParentPage;
+import pages.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,14 @@ public class HeaderElements extends ParentPage {
     private WebElement unatedStatesOption;
     @FindBy(xpath = ".//a[@data-dropdown = 'eu']")
     private WebElement europeOption;
-
+    @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Powerball')]")
+    private WebElement australianPowerball;
+    @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Oz Lotto')]")
+    private WebElement australianOzLotto;
+    @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Saturday Lotto')]")
+    private WebElement australianSaturdayLotto;
+    @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Monday & Wednesday Lotto')]")
+    private WebElement australianMondayWednesdayLotto;
     public HeaderElements(WebDriver webDriver) {
         super(webDriver);
     }
@@ -66,10 +72,12 @@ public class HeaderElements extends ParentPage {
         return this;
     }
 
-    public HeaderElements checkSubMenuForAustaria() {
+    public HeaderElements hoverOnAustralia_Element(){
         hoverOverElement(australiaOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuAustralia));
-
+        return this;
+    }
+    public HeaderElements checkSubMenuForAustaria() {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuAustralia) {
             actualList.add(webElement.getText().trim());
@@ -85,10 +93,12 @@ public class HeaderElements extends ParentPage {
         return this;
     }
 
-    public HeaderElements checkSubMenuForUS() {
+    public HeaderElements hoverOnUS_Element(){
         hoverOverElement(unatedStatesOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuUS));
-
+        return this;
+    }
+    public HeaderElements checkSubMenuForUS() {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuUS) {
             actualList.add(webElement.getText().trim());
@@ -104,6 +114,11 @@ public class HeaderElements extends ParentPage {
         return this;
     }
 
+    public HeaderElements hoverOnEU_Element(){
+        hoverOverElement(europeOption);
+        webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
+        return this;
+    }
     public HeaderElements checkSubMenuForEU() {
         hoverOverElement(europeOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
@@ -122,4 +137,24 @@ public class HeaderElements extends ParentPage {
         softAssertions.assertAll();
         return this;
     }
+
+    public AustarliaPowerballPage clickPowerballOption(){
+        clickOnElement(australianPowerball);
+        return new AustarliaPowerballPage(webDriver);
+    }
+
+    public AustraliaOzLottoPage clickOZLottoOption(){
+        clickOnElement(australianOzLotto);
+        return new AustraliaOzLottoPage(webDriver);
+    }
+
+    public AustraliaSaturdayLottoPage clickSaturdayLottoOption(){
+        clickOnElement(australianSaturdayLotto);
+        return new AustraliaSaturdayLottoPage(webDriver);
+    }
+    public AustrMondAndWednLottoPage clickMondAndWednLottoOption(){
+        clickOnElement(australianMondayWednesdayLotto);
+        return new AustrMondAndWednLottoPage(webDriver);
+    }
 }
+

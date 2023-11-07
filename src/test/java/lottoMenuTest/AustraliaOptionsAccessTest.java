@@ -1,4 +1,8 @@
 package lottoMenuTest;
+
+import baseTest.BaseTest;
+import org.junit.Test;
+
 /*
 Verify that "Australia" menu options are clickable and transfer user to the chosen option.
 1. Open the link: https://lottosimulation.com/
@@ -23,5 +27,22 @@ Expected Result:
 User is transferred to the Monday & Wednesday Lotto page. The header is present on the page and is equal to “Simulate playing Monday & Wednesday Lotto Australia”.
 The URL is equal to https://lottosimulation.com/au/lotto-mon-wed
  */
-public class AustraliaOptionsAccessTest {
+public class AustraliaOptionsAccessTest extends BaseTest {
+    @Test
+    public void AustraliaSubMenuOptionAccessibility(){
+        headerElements.openHomePage()
+                .hoverOnAustralia_Element()
+                .clickPowerballOption()
+                .checkIsRedirectedToAustralianPowerballLotto();
+        headerElements.hoverOnAustralia_Element()
+                .clickOZLottoOption()
+                .checkIsRedirectedToAustralianOzlLotto();
+        headerElements.hoverOnAustralia_Element()
+                .clickSaturdayLottoOption()
+                .checkIsRedirectedToAustrSaturdayLottoOption();
+        headerElements.hoverOnAustralia_Element()
+                .clickMondAndWednLottoOption()
+                .checkIsRedirectedToAustrMondAndWednLotto();
+    }
 }
+
