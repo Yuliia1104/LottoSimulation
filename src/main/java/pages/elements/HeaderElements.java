@@ -32,7 +32,7 @@ public class HeaderElements extends ParentPage {
     private WebElement unatedStatesOption;
     @FindBy(xpath = ".//a[@data-dropdown = 'eu']")
     private WebElement europeOption;
-    @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Powerball')]")
+    @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[@href='/au/powerball']")
     private WebElement australianPowerball;
     @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Oz Lotto')]")
     private WebElement australianOzLotto;
@@ -83,13 +83,13 @@ public class HeaderElements extends ParentPage {
             actualList.add(webElement.getText().trim());
         }
 
-        SoftAssertions softAssertions = new SoftAssertions();
+        SoftAssertions softAssertion = new SoftAssertions();
         for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+            softAssertion.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
             logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
-        softAssertions.assertAll();
+        softAssertion.assertAll();
         return this;
     }
 
@@ -104,13 +104,13 @@ public class HeaderElements extends ParentPage {
             actualList.add(webElement.getText().trim());
         }
 
-        SoftAssertions softAssertions = new SoftAssertions();
+        SoftAssertions softAssertion = new SoftAssertions();
         for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+            softAssertion.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
             logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
-        softAssertions.assertAll();
+        softAssertion.assertAll();
         return this;
     }
 
@@ -128,33 +128,39 @@ public class HeaderElements extends ParentPage {
             actualList.add(webElement.getText().trim());
         }
 
-        SoftAssertions softAssertions = new SoftAssertions();
+        SoftAssertions softAssertion = new SoftAssertions();
         for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+            softAssertion.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
             logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
-        softAssertions.assertAll();
+        softAssertion.assertAll();
         return this;
     }
 
     public AustarliaPowerballPage clickPowerballOption(){
+        webDriverWait30.until(ExpectedConditions.visibilityOf(australianPowerball));
+        waitABit(1);
         clickOnElement(australianPowerball);
         return new AustarliaPowerballPage(webDriver);
     }
 
     public AustraliaOzLottoPage clickOZLottoOption(){
+        webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianOzLotto));
         clickOnElement(australianOzLotto);
         return new AustraliaOzLottoPage(webDriver);
     }
 
     public AustraliaSaturdayLottoPage clickSaturdayLottoOption(){
+        webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianSaturdayLotto));
         clickOnElement(australianSaturdayLotto);
         return new AustraliaSaturdayLottoPage(webDriver);
     }
     public AustrMondAndWednLottoPage clickMondAndWednLottoOption(){
+        webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianMondayWednesdayLotto));
         clickOnElement(australianMondayWednesdayLotto);
         return new AustrMondAndWednLottoPage(webDriver);
     }
 }
+
 
