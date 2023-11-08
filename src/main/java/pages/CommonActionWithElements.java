@@ -86,8 +86,11 @@ public class CommonActionWithElements {
     }
 
     public void scrollToElemnt(WebElement webElement) {
-//        WebElement webElement = webDriver.findElement(By.xpath(".//h1[contains(text(), '5')]"));
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", webElement);
+    }
+
+    protected void userRefreshTab(){
+        webDriver.navigate().refresh();
     }
 
     protected void printErrorAndStopTest(Exception e) {
