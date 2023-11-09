@@ -109,7 +109,7 @@ public class AustarliaPowerballPage extends ParentPage {
         return this;
     }
 
-    public AustarliaPowerballPage checkEndBalance(String endBalance) {
+    public AustarliaPowerballPage checkSumOfAllMonetaryOptions(String endBalance) {
         userRefreshTab();
 
         double oneHUnd = 0, oneThous = 0, tenTous = 0, oneHundThous = 0;
