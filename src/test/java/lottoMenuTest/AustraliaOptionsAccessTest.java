@@ -1,6 +1,8 @@
 package lottoMenuTest;
 
 import baseTest.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import libs.TestData;
 import org.junit.Test;
 
@@ -34,7 +36,9 @@ Verify "Australia" Menu Options are Clickable and Redirect to the Chosen Option
       - The header on the page is present and matches the text "Simulate playing Monday & Wednesday Lotto Australia."
       - The URL is equal to https://lottosimulation.com/au/lotto-mon-wed.
  */
+@Feature("'Australia' Sub-Menu Options Navigation Functionality")
 public class AustraliaOptionsAccessTest extends BaseTest {
+    @Description("Guaranteeing that 'Australia' menu options are clickable and correctly redirect users to their chosen destinations.")
     @Test
     public void AustraliaSubMenuOptionAccessibility(){
         headerElements.openHomePage(MAIN_TITLE)

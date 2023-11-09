@@ -1,11 +1,4 @@
 package lottoMenuTest;
-
-import baseTest.BaseTest;
-import org.junit.Test;
-
-
-import static libs.TestData.*;
-
 /*
 Verify Lotto Menu and Sub-menu Options on Starting Page
 - Steps:
@@ -27,7 +20,20 @@ Verify Lotto Menu and Sub-menu Options on Starting Page
        - Expected Result:
          - The Europe option displays 2 sub-options: Euro Millions and Euro Jackpot when hovered over.
  */
+
+import baseTest.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import org.junit.Test;
+
+
+import static libs.TestData.*;
+
+
+@Feature("Lotto Menu and Sub-menu Options on Starting Page.")
 public class LottoMenuTest extends BaseTest {
+    @Description("Verifying the Lotto menu and sub-menu options on the starting page are available to the user and named properly.")
     @Test
     public void menuOptionsVerification() {
         headerElements.openHomePage(MAIN_TITLE)
