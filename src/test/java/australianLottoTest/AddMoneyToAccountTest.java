@@ -38,7 +38,7 @@ public class AddMoneyToAccountTest extends BaseTest {
                 .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE)
                 .checkMonetaryOptions(MONETARY_OPTIONS)
                 .checkAddingEachMoneyOptionToAccount(ONE_HUNDRED, ONE_THOUSAND, TEN_THOUSAND, ONE_HUNDRED_THOUSAND)
-                .checkEndBalance(END_BALANCE);
+                .checkSumOfAllMonetaryOptions(END_BALANCE);
 
 
 
