@@ -1,6 +1,8 @@
 package australianLottoTest;
 
 import baseTest.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import libs.TestData;
 import org.junit.Test;
 
@@ -31,7 +33,10 @@ Verify Australian Powerball Lotto Game Rules and Current Jackpot Amount
         - 7 numbers are drawn from the main barrel, and one Powerball is drawn from the Powerball barrel."
       - Current Jackpot (JP) amount is equal to 8M.
  */
+@Feature("Australian Powerball Lotto Game Rules and Current Jackpot Amount")
 public class PowerballGameRulesTest extends BaseTest {
+    @Description("Verify the Australian Powerball lotto game rules exist and relevant to the game" +
+                 " and providing real-time jackpot information for an informed user experience.")
     @Test
     public void powerballGameRulesJPValueVerification(){
         headerElements.openHomePage(MAIN_TITLE)

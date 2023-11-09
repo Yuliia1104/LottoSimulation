@@ -1,6 +1,8 @@
 package australianLottoTest;
 
 import baseTest.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.junit.Test;
 import static libs.TestData.*;
 
@@ -23,9 +25,11 @@ Verify "Australia" Menu Options are Clickable and Redirect to the Chosen Option
     - Expected Result:
        - Each click adds monetary value to the "Balance" meter.
        - End balance in the "Balance" meter is equal to the sum of all available monetary options.
-
  */
+@Feature("Money Addition Functionality.")
 public class AddMoneyToAccountTest extends BaseTest {
+    @Description("Verify that monetary options equal to $100, $1k, $10k, $100K, that user can add available" +
+                 " to him monetary options to his personal balance, and that added options are accumulating.")
     @Test
     public void addMoneyToBalanceVerification(){
         headerElements.openHomePage(MAIN_TITLE)
@@ -33,8 +37,8 @@ public class AddMoneyToAccountTest extends BaseTest {
                 .clickPowerballOption()
                 .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE)
                 .checkMonetaryOptions(MONETARY_OPTIONS)
-                .canAddMoneyOptionToAccount(ONE_HUNDRED, ONE_THOUSAND, TEN_THOUSAND, ONE_HUNDRED_THOUSAND)
-                .checkMoneyAditionFunctionality();
+                .checkAddingEachMoneyOptionToAccount(ONE_HUNDRED, ONE_THOUSAND, TEN_THOUSAND, ONE_HUNDRED_THOUSAND)
+                .checkEndBalance(END_BALANCE);
 
 
 

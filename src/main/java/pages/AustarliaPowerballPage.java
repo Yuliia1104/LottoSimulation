@@ -93,7 +93,7 @@ public class AustarliaPowerballPage extends ParentPage {
         return this;
     }
 
-    public AustarliaPowerballPage canAddMoneyOptionToAccount(String oneHUnd, String oneThous, String tenThous, String oneHUndThous) {
+    public AustarliaPowerballPage checkAddingEachMoneyOptionToAccount(String oneHUnd, String oneThous, String tenThous, String oneHUndThous) {
         clickOnElement(oneHundrDollars);
         forTextComparing(oneHUnd, balanceMeter);
         userRefreshTab();
@@ -109,7 +109,7 @@ public class AustarliaPowerballPage extends ParentPage {
         return this;
     }
 
-    public AustarliaPowerballPage checkMoneyAditionFunctionality() {
+    public AustarliaPowerballPage checkEndBalance(String endBalance) {
         userRefreshTab();
 
         double oneHUnd = 0, oneThous = 0, tenTous = 0, oneHundThous = 0;
@@ -140,7 +140,7 @@ public class AustarliaPowerballPage extends ParentPage {
                 logger.info(oneHUnd+"+"+oneThous+"+"+tenTous+"+"+oneHundThous+" = "+actualBalance);
             }
         }
-        Assert.assertEquals("$111,100.00", balanceMeter.getText());
+        Assert.assertEquals(endBalance, balanceMeter.getText());
         return this;
     }
 

@@ -16,6 +16,7 @@ public class TestData {
     public final static String ONE_THOUSAND = "$1,000.00";
     public final static String TEN_THOUSAND = "$10,000.00";
     public final static String ONE_HUNDRED_THOUSAND = "$100,000.00";
+    public final static String END_BALANCE = "$111,100.00";
 
     public static ArrayList<String> MAIN_MENU_ITEMS = new ArrayList<>(Arrays.asList("Australia","United States","Europe"));
     public static ArrayList<String> SUB_MENU_AUSTRALIA = new ArrayList<>(Arrays.asList("Powerball", "Oz Lotto", "Saturday Lotto", "Monday & Wednesday Lotto"));

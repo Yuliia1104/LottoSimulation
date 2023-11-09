@@ -11,11 +11,17 @@ package startingPageTest;
  */
 
 import baseTest.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
 import libs.TestData;
 import org.junit.Test;
 
+@Feature("Home Page Load")
 public class LoadHomePageTest extends BaseTest {
 @Test
+@Description("Verify a seamless loading experience for the homepage," +
+             " setting the foundation for subsequent interactions.")
     public  void loadStartPage(){
     homePage.openHomePage()
             .checkUrl()
