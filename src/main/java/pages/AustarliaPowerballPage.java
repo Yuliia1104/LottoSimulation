@@ -110,6 +110,7 @@ public class AustarliaPowerballPage extends ParentPage {
         return this;
     }
     @Step
+
     public AustarliaPowerballPage checkSumOfAllMonetaryOptions(String endBalance) {
         userRefreshTab();
 
