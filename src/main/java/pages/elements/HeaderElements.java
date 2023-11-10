@@ -12,8 +12,6 @@ import pages.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static libs.TestData.*;
-
 public class HeaderElements extends ParentPage {
     HomePage homePage = new HomePage(webDriver);
     Logger logger = Logger.getLogger(getClass());
@@ -41,6 +39,7 @@ public class HeaderElements extends ParentPage {
     private WebElement australianSaturdayLotto;
     @FindBy(xpath = ".//*[@data-dropdown = 'australia']//*[@class ='dropdownContent']//a[contains(text(), 'Monday & Wednesday Lotto')]")
     private WebElement australianMondayWednesdayLotto;
+
     public HeaderElements(WebDriver webDriver) {
         super(webDriver);
     }
@@ -49,6 +48,7 @@ public class HeaderElements extends ParentPage {
     protected String getRelativeUrl() {
         return "/";
     }
+
     @Step
     public HeaderElements openHomePage(String text) {
         homePage.openHomePage()
@@ -56,6 +56,7 @@ public class HeaderElements extends ParentPage {
                 .checkMailTitle(text);
         return this;
     }
+
     @Step
     public HeaderElements checkMainMenu(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
@@ -72,12 +73,14 @@ public class HeaderElements extends ParentPage {
         softAssertions.assertAll();
         return this;
     }
+
     @Step
     public HeaderElements hoverOnAustralia_Element(){
         hoverOverElement(australiaOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(australianPowerball));
         return this;
     }
+
     @Step
     public HeaderElements checkSubMenuForAustaria(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
@@ -94,12 +97,14 @@ public class HeaderElements extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
+
     @Step
     public HeaderElements hoverOnUS_Element(){
         hoverOverElement(unatedStatesOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuUS));
         return this;
     }
+
     @Step
     public HeaderElements checkSubMenuForUS(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
@@ -116,12 +121,14 @@ public class HeaderElements extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
+
     @Step
     public HeaderElements hoverOnEU_Element(){
         hoverOverElement(europeOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
         return this;
     }
+
     @Step
     public HeaderElements checkSubMenuForEU(ArrayList<String> expevtedData) {
         hoverOverElement(europeOption);
@@ -141,6 +148,7 @@ public class HeaderElements extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
+
     @Step
     public AustarliaPowerballPage clickPowerballOption(){
         webDriverWait30.until(ExpectedConditions.visibilityOf(australianPowerball));
@@ -148,18 +156,21 @@ public class HeaderElements extends ParentPage {
         clickOnElement(australianPowerball);
         return new AustarliaPowerballPage(webDriver);
     }
+
     @Step
     public AustraliaOzLottoPage clickOZLottoOption(){
         webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianOzLotto));
         clickOnElement(australianOzLotto);
         return new AustraliaOzLottoPage(webDriver);
     }
+
     @Step
     public AustraliaSaturdayLottoPage clickSaturdayLottoOption(){
         webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianSaturdayLotto));
         clickOnElement(australianSaturdayLotto);
         return new AustraliaSaturdayLottoPage(webDriver);
     }
+
     @Step
     public AustrMondAndWednLottoPage clickMondAndWednLottoOption(){
         webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianMondayWednesdayLotto));

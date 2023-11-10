@@ -23,7 +23,6 @@ Verify Lotto Menu and Sub-menu Options on Starting Page
 
 import baseTest.BaseTest;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import org.junit.Test;
 
