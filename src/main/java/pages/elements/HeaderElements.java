@@ -1,5 +1,6 @@
 package pages.elements;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
@@ -48,14 +49,14 @@ public class HeaderElements extends ParentPage {
     protected String getRelativeUrl() {
         return "/";
     }
-
+    @Step
     public HeaderElements openHomePage(String text) {
         homePage.openHomePage()
                 .checkUrl()
                 .checkMailTitle(text);
         return this;
     }
-
+    @Step
     public HeaderElements checkMainMenu(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : mainMenuItems) {
@@ -71,12 +72,13 @@ public class HeaderElements extends ParentPage {
         softAssertions.assertAll();
         return this;
     }
-
+    @Step
     public HeaderElements hoverOnAustralia_Element(){
         hoverOverElement(australiaOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(australianPowerball));
         return this;
     }
+    @Step
     public HeaderElements checkSubMenuForAustaria(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuAustralia) {
@@ -92,12 +94,13 @@ public class HeaderElements extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
-
+    @Step
     public HeaderElements hoverOnUS_Element(){
         hoverOverElement(unatedStatesOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuUS));
         return this;
     }
+    @Step
     public HeaderElements checkSubMenuForUS(ArrayList<String> expevtedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuUS) {
@@ -113,12 +116,13 @@ public class HeaderElements extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
-
+    @Step
     public HeaderElements hoverOnEU_Element(){
         hoverOverElement(europeOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
         return this;
     }
+    @Step
     public HeaderElements checkSubMenuForEU(ArrayList<String> expevtedData) {
         hoverOverElement(europeOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
@@ -137,25 +141,26 @@ public class HeaderElements extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
-
+    @Step
     public AustarliaPowerballPage clickPowerballOption(){
         webDriverWait30.until(ExpectedConditions.visibilityOf(australianPowerball));
         waitABit(1);
         clickOnElement(australianPowerball);
         return new AustarliaPowerballPage(webDriver);
     }
-
+    @Step
     public AustraliaOzLottoPage clickOZLottoOption(){
         webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianOzLotto));
         clickOnElement(australianOzLotto);
         return new AustraliaOzLottoPage(webDriver);
     }
-
+    @Step
     public AustraliaSaturdayLottoPage clickSaturdayLottoOption(){
         webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianSaturdayLotto));
         clickOnElement(australianSaturdayLotto);
         return new AustraliaSaturdayLottoPage(webDriver);
     }
+    @Step
     public AustrMondAndWednLottoPage clickMondAndWednLottoOption(){
         webDriverWait30.until(ExpectedConditions.elementToBeClickable(australianMondayWednesdayLotto));
         clickOnElement(australianMondayWednesdayLotto);

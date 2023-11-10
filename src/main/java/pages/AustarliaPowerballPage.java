@@ -1,6 +1,7 @@
 package pages;
 
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebDriver;
@@ -46,7 +47,7 @@ public class AustarliaPowerballPage extends ParentPage {
     protected String getRelativeUrl() {
         return "/au/powerball";
     }
-
+@Step
     public AustarliaPowerballPage checkIsRedirectedToAustralianPowerballLotto(String title) {
         checkURL();
         isElementDisplayed(mainTitleAustrPowerball);
@@ -54,13 +55,13 @@ public class AustarliaPowerballPage extends ParentPage {
         logger.info("----------");
         return this;
     }
-
+    @Step
     public AustarliaPowerballPage checkGameRulesLinkPresence(String title) {
         isElementDisplayed(gameRulesLink);
         forTextComparing(title, gameRulesLink);
         return this;
     }
-
+    @Step
     public AustarliaPowerballPage checkGameRulesContent(String content) {
         clickOnElement(gameRulesLink);
         scrollToElemnt(gameRulesTitle);
@@ -68,13 +69,13 @@ public class AustarliaPowerballPage extends ParentPage {
         forTextComparing(content, gameRulesContent);
         return this;
     }
-
+    @Step
     public AustarliaPowerballPage checkJPAmount(String jpValue) {
         forTextComparing(jpValue, jpAmount);
         return this;
     }
 
-
+    @Step
     public AustarliaPowerballPage checkMonetaryOptions(ArrayList<String> expectedData) {
         scrollToElemnt(balanceMeter);
         ArrayList<String> actualOptionValues = new ArrayList<>();
@@ -92,7 +93,7 @@ public class AustarliaPowerballPage extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
-
+    @Step
     public AustarliaPowerballPage checkAddingEachMoneyOptionToAccount(String oneHUnd, String oneThous, String tenThous, String oneHUndThous) {
         clickOnElement(oneHundrDollars);
         forTextComparing(oneHUnd, balanceMeter);
@@ -108,6 +109,7 @@ public class AustarliaPowerballPage extends ParentPage {
         logger.info("----------");
         return this;
     }
+    @Step
 
     public AustarliaPowerballPage checkSumOfAllMonetaryOptions(String endBalance) {
         userRefreshTab();

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ public class HomePage extends ParentPage {
     protected String getRelativeUrl() {
         return "/";
     }
-
+@Step
     public HomePage openHomePage() {
         try {
             webDriver.get(base_url + getRelativeUrl());
@@ -30,12 +31,12 @@ public class HomePage extends ParentPage {
         }
         return this;
     }
-
+    @Step
     public HomePage checkUrl() {
         checkURL();
         return this;
     }
-
+    @Step
     public HomePage checkMailTitle(String text) {
         Assert.assertTrue(mainTitle + " is not displayed", isElementDisplayed(mainTitle));
         forTextComparing(text, mainTitle);
