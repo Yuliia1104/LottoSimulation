@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +20,7 @@ public class AustraliaOzLottoPage extends ParentPage{
     protected String getRelativeUrl() {
         return "/au/oz-lotto";
     }
-
+    @Step
     public AustraliaOzLottoPage checkIsRedirectedToAustralianOzlLotto(String title){
         checkURL();
         isElementDisplayed(mainTitleAustrOzLotto);

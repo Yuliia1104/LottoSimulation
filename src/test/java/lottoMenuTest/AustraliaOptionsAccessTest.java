@@ -38,7 +38,7 @@ Verify "Australia" Menu Options are Clickable and Redirect to the Chosen Option
  */
 @Feature("'Australia' Sub-Menu Options Navigation Functionality")
 public class AustraliaOptionsAccessTest extends BaseTest {
-    @Description("Guaranteeing that 'Australia' menu options are clickable and correctly redirect users to their chosen destinations.")
+    @Description("Verify that 'Australia' menu options are clickable and correctly redirect users to their chosen destinations.")
     @Test
     public void AustraliaSubMenuOptionAccessibility(){
         headerElements.openHomePage(MAIN_TITLE)

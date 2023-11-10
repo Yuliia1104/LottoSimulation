@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,7 +21,7 @@ public class AustrMondAndWednLottoPage extends ParentPage{
     protected String getRelativeUrl() {
         return "/au/lotto-mon-wed";
     }
-
+    @Step
     public AustrMondAndWednLottoPage checkIsRedirectedToAustrMondAndWednLotto(String title){
         checkURL();
         isElementDisplayed(mainTitleMondAndWedn);
