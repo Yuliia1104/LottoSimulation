@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends ParentPage {
-    Logger logger = Logger.getLogger(getClass());
+
     @FindBy(xpath = ".//h1[contains(text(),'Free Lottery Simulation')]")
     private WebElement mainTitle;
 
@@ -20,7 +20,8 @@ public class HomePage extends ParentPage {
     protected String getRelativeUrl() {
         return "/";
     }
-@Step
+
+    @Step
     public HomePage openHomePage() {
         try {
             webDriver.get(base_url + getRelativeUrl());
@@ -31,11 +32,13 @@ public class HomePage extends ParentPage {
         }
         return this;
     }
+
     @Step
     public HomePage checkUrl() {
         checkURL();
         return this;
     }
+
     @Step
     public HomePage checkMailTitle(String text) {
         Assert.assertTrue(mainTitle + " is not displayed", isElementDisplayed(mainTitle));

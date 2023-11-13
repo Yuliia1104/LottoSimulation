@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import libs.ScreenShot;
 import org.apache.log4j.Logger;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
@@ -79,14 +78,6 @@ public class BaseTest {
         }
 
     };
-
-//    @After
-//    public void tearDown() {
-//        webDriver.quit();
-//        logger.info("Browser was closed.");
-//        logger.info("--------- " + testName.getMethodName() + " is finished-----");
-//
-//    }
 
     @Rule
     public TestName testName = new TestName();

@@ -1,15 +1,7 @@
 package lottoMenuTest;
 
-import baseTest.BaseTest;
-import io.qameta.allure.Description;
-import io.qameta.allure.Feature;
-import libs.TestData;
-import org.junit.Test;
-
-import static libs.TestData.*;
-
 /*
-Verify "Australia" Menu Options are Clickable and Redirect to the Chosen Option
+Verify "Australia" Menu Sub-Options are Clickable and Redirect to the Chosen Option
 1. Steps:
     1. Open the link: https://lottosimulation.com/
     - The website loads the home page.
@@ -36,24 +28,31 @@ Verify "Australia" Menu Options are Clickable and Redirect to the Chosen Option
       - The header on the page is present and matches the text "Simulate playing Monday & Wednesday Lotto Australia."
       - The URL is equal to https://lottosimulation.com/au/lotto-mon-wed.
  */
+import baseTest.BaseTest;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import org.junit.Test;
+
+import static libs.TestData.*;
+
 @Feature("'Australia' Sub-Menu Options Navigation Functionality")
 public class AustraliaOptionsAccessTest extends BaseTest {
     @Description("Verify that 'Australia' menu options are clickable and correctly redirect users to their chosen destinations.")
     @Test
     public void AustraliaSubMenuOptionAccessibility(){
         headerElements.openHomePage(MAIN_TITLE)
-                .hoverOnAustralia_Element()
-                .clickPowerballOption()
-                .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE);
+                      .hoverOnAustralia_Element()
+                      .clickPowerballOption()
+                      .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE);
         headerElements.hoverOnAustralia_Element()
-                .clickOZLottoOption()
-                .checkIsRedirectedToAustralianOzlLotto(AUSTRALIA_OZ_LOTTO_TITLE);
+                      .clickOZLottoOption()
+                      .checkIsRedirectedToAustralianOzlLotto(AUSTRALIA_OZ_LOTTO_TITLE);
         headerElements.hoverOnAustralia_Element()
-                .clickSaturdayLottoOption()
-                .checkIsRedirectedToAustrSaturdayLottoOption(AUSTRALIA_SATURDAY_LOTTO_TITLE);
+                      .clickSaturdayLottoOption()
+                      .checkIsRedirectedToAustrSaturdayLottoOption(AUSTRALIA_SATURDAY_LOTTO_TITLE);
         headerElements.hoverOnAustralia_Element()
-                .clickMondAndWednLottoOption()
-                .checkIsRedirectedToAustrMondAndWednLotto(AUSTRALIA_MON_AND_WEDN_LOTTO_TITLE);
+                      .clickMondAndWednLottoOption()
+                      .checkIsRedirectedToAustrMondAndWednLotto(AUSTRALIA_MON_AND_WEDN_LOTTO_TITLE);
     }
 }
 

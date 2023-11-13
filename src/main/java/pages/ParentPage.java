@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 public abstract class ParentPage extends CommonActionWithElements {
+
     protected String base_url;
 
     public ParentPage(WebDriver webDriver) {

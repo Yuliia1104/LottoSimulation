@@ -21,30 +21,11 @@ public class AustrMondAndWednLottoPage extends ParentPage{
     protected String getRelativeUrl() {
         return "/au/lotto-mon-wed";
     }
-
-    @Step
-    public AustrMondAndWednLottoPage checkAUMonAndWedLottoURL(){
-        checkURL();
-        return this;
-    }
-
-    @Step
-    public AustrMondAndWednLottoPage isAUMonAndWedLottoMainTitleDisplayed(){
-        isElementDisplayed(mainTitleMondAndWedn);
-
-        return this;
-    }
-
-    @Step
-    public AustrMondAndWednLottoPage checkAUMonAndWedLottoTitleContent(String title){
-        forTextComparing(title, mainTitleMondAndWedn);
-        return this;
-    }
     @Step
     public AustrMondAndWednLottoPage checkIsRedirectedToAustrMondAndWednLotto(String title){
-        checkAUMonAndWedLottoURL();
-        isAUMonAndWedLottoMainTitleDisplayed();
-        checkAUMonAndWedLottoTitleContent(title);
+        checkURL();
+        isElementDisplayed(mainTitleMondAndWedn);
+        forTextComparing(title, mainTitleMondAndWedn);
         logger.info("----------");
         return this;
     }

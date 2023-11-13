@@ -3,7 +3,6 @@ package australianLottoTest;
 import baseTest.BaseTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
-import libs.TestData;
 import org.junit.Test;
 
 import static libs.TestData.*;
@@ -12,6 +11,7 @@ import static libs.TestData.*;
 Verify Australian Powerball Lotto Game Rules and Current Jackpot Amount
 1. Steps:
     1. Open the link: https://lottosimulation.com/
+   - Expected Result:
     - The website loads the starting page.
     - The URL is equal to https://lottosimulation.com/.
     - The "Free Lottery Simulation" header is displayed.
@@ -26,7 +26,7 @@ Verify Australian Powerball Lotto Game Rules and Current Jackpot Amount
     4. Click on the "Details & Rules" link below the main header.
     - Expected Result:
       - The user is transferred to the section "Details & Rules."
-      - The header of this section is equal to "Australia Powerball details & rules", .//*[@id='rules']//h2[text()='Australia Powerball details & rules']
+      - The header of this section is equal to "Australia Powerball details & rules".
       - The section contains game rules that equal the following:
         - "The main balls and the Powerball are drawn from 2 separate barrels.
         - The main barrel contains numbers from 1 to 35, and the Powerball barrel numbers from 1 to 20.

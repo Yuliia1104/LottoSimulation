@@ -12,7 +12,6 @@ package startingPageTest;
 
 import baseTest.BaseTest;
 import io.qameta.allure.Description;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import libs.TestData;
 import org.junit.Test;
