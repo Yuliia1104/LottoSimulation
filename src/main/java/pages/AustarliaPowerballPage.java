@@ -47,8 +47,7 @@ public class AustarliaPowerballPage extends ParentPage {
     protected String getRelativeUrl() {
         return "/au/powerball";
     }
-
-    @Step
+@Step
     public AustarliaPowerballPage checkIsRedirectedToAustralianPowerballLotto(String title) {
         checkURL();
         isElementDisplayed(mainTitleAustrPowerball);
@@ -56,14 +55,12 @@ public class AustarliaPowerballPage extends ParentPage {
         logger.info("----------");
         return this;
     }
-
     @Step
     public AustarliaPowerballPage checkGameRulesLinkPresence(String title) {
         isElementDisplayed(gameRulesLink);
         forTextComparing(title, gameRulesLink);
         return this;
     }
-
     @Step
     public AustarliaPowerballPage checkGameRulesContent(String content) {
         clickOnElement(gameRulesLink);
@@ -72,7 +69,6 @@ public class AustarliaPowerballPage extends ParentPage {
         forTextComparing(content, gameRulesContent);
         return this;
     }
-
     @Step
     public AustarliaPowerballPage checkJPAmount(String jpValue) {
         forTextComparing(jpValue, jpAmount);
@@ -97,7 +93,6 @@ public class AustarliaPowerballPage extends ParentPage {
         softAssertion.assertAll();
         return this;
     }
-
     @Step
     public AustarliaPowerballPage checkAddingEachMoneyOptionToAccount(String oneHUnd, String oneThous, String tenThous, String oneHUndThous) {
         clickOnElement(oneHundrDollars);
@@ -114,8 +109,8 @@ public class AustarliaPowerballPage extends ParentPage {
         logger.info("----------");
         return this;
     }
-
     @Step
+
     public AustarliaPowerballPage checkSumOfAllMonetaryOptions(String endBalance) {
         userRefreshTab();
 
@@ -125,26 +120,26 @@ public class AustarliaPowerballPage extends ParentPage {
                 clickOnElement(oneHundrDollars);
                 oneHUnd = 100.00;
                 double actualBalance = Double.parseDouble(balanceMeter.getText().substring(1).replace(",", ""));
-                Assert.assertEquals(oneHUnd, actualBalance, 0.00);
-                logger.info(oneHUnd + " = " + actualBalance);
+                Assert.assertEquals(oneHUnd,actualBalance, 0.00);
+                logger.info(oneHUnd +" = "+ actualBalance);
             } else if (value.getText().equalsIgnoreCase("$1k")) {
                 clickOnElement(oneThousandDollars);
                 oneThous = 1000.00;
-                double actualBalance = Double.parseDouble(balanceMeter.getText().substring(1).replace(",", ""));
-                Assert.assertEquals(1100.00, actualBalance, 0.00);
-                logger.info(oneHUnd + "+" + oneThous + " = " + actualBalance);
+                double actualBalance =Double.parseDouble(balanceMeter.getText().substring(1).replace(",", ""));
+                Assert.assertEquals(1100.00,actualBalance, 0.00);
+                logger.info(oneHUnd+"+"+oneThous+" = "+ actualBalance);
             } else if (value.getText().equalsIgnoreCase("$10k")) {
                 clickOnElement(tenThousandsDollars);
                 tenTous = 10000.00;
                 double actualBalance = Double.parseDouble(balanceMeter.getText().substring(1).replace(",", ""));
-                Assert.assertEquals(11100.00, actualBalance, 0.00);
-                logger.info(oneHUnd + "+" + oneThous + "+" + tenTous + " = " + actualBalance);
+                Assert.assertEquals(11100.00,actualBalance, 0.00);
+                logger.info(oneHUnd+"+"+oneThous+"+"+tenTous+" = "+actualBalance);
             } else if (value.getText().equalsIgnoreCase("$100k")) {
                 clickOnElement(oneHundrThousDollars);
                 oneHundThous = 100000.00;
                 double actualBalance = Double.parseDouble(balanceMeter.getText().substring(1).replace(",", ""));
-                Assert.assertEquals(111100.00, actualBalance, 0.00);
-                logger.info(oneHUnd + "+" + oneThous + "+" + tenTous + "+" + oneHundThous + " = " + actualBalance);
+                Assert.assertEquals(111100.00,actualBalance, 0.00);
+                logger.info(oneHUnd+"+"+oneThous+"+"+tenTous+"+"+oneHundThous+" = "+actualBalance);
             }
         }
         Assert.assertEquals(endBalance, balanceMeter.getText());

@@ -44,8 +44,8 @@ public class PowerballGameRulesTest extends BaseTest {
                       .clickPowerballOption()
                       .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE)
                       .checkGameRulesLinkPresence(GAME_RULES_AND_DETAILS_TITLE)
-                      .checkGameRulesContent(GAME_RULES_CONTENT)
-                      .checkJPAmount(JP_AMOUNT);
+                      .checkGameRulesAndJPContent(GAME_RULES_CONTENT, JP_AMOUNT);
+
 
     }
 }

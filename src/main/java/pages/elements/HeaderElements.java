@@ -58,15 +58,16 @@ public class HeaderElements extends ParentPage {
     }
 
     @Step
-    public HeaderElements checkMainMenu(ArrayList<String> expevtedData) {
+    public HeaderElements checkMainMenu(ArrayList<String> expectedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : mainMenuItems) {
             actualList.add(webElement.getText());
         }
 
+
         SoftAssertions softAssertions = new SoftAssertions();
-        for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertions.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
+        for (int i = 0; i < expectedData.size(); i++) {
+            softAssertions.assertThat(expectedData.get(i)).as(expectedData.get(i) + " does not find its match").isIn(actualList);
         }
         logger.info("Menu options are verified");
         logger.info("----------");
@@ -82,16 +83,16 @@ public class HeaderElements extends ParentPage {
     }
 
     @Step
-    public HeaderElements checkSubMenuForAustaria(ArrayList<String> expevtedData) {
+    public HeaderElements checkSubMenuForAustaria(ArrayList<String> expectedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuAustralia) {
             actualList.add(webElement.getText().trim());
         }
 
         SoftAssertions softAssertion = new SoftAssertions();
-        for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertion.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
-            logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
+        for (int i = 0; i < expectedData.size(); i++) {
+            softAssertion.assertThat(expectedData.get(i)).as(expectedData.get(i) + " does not find its match").isIn(actualList);
+            logger.info(expectedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
         softAssertion.assertAll();
@@ -106,16 +107,16 @@ public class HeaderElements extends ParentPage {
     }
 
     @Step
-    public HeaderElements checkSubMenuForUS(ArrayList<String> expevtedData) {
+    public HeaderElements checkSubMenuForUS(ArrayList<String> expectedData) {
         ArrayList<String> actualList = new ArrayList<>();
         for (WebElement webElement : subMenuUS) {
             actualList.add(webElement.getText().trim());
         }
 
         SoftAssertions softAssertion = new SoftAssertions();
-        for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertion.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
-            logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
+        for (int i = 0; i < expectedData.size(); i++) {
+            softAssertion.assertThat(expectedData.get(i)).as(expectedData.get(i) + " does not find its match").isIn(actualList);
+            logger.info(expectedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
         softAssertion.assertAll();
@@ -130,7 +131,7 @@ public class HeaderElements extends ParentPage {
     }
 
     @Step
-    public HeaderElements checkSubMenuForEU(ArrayList<String> expevtedData) {
+    public HeaderElements checkSubMenuForEU(ArrayList<String> expectedData) {
         hoverOverElement(europeOption);
         webDriverWait30.until(ExpectedConditions.visibilityOfAllElements(subMenuEU));
 
@@ -140,9 +141,9 @@ public class HeaderElements extends ParentPage {
         }
 
         SoftAssertions softAssertion = new SoftAssertions();
-        for (int i = 0; i < expevtedData.size(); i++) {
-            softAssertion.assertThat(expevtedData.get(i)).as(expevtedData.get(i) + " does not find its match").isIn(actualList);
-            logger.info(expevtedData.get(i)+" matches with "+actualList.get(i));
+        for (int i = 0; i < expectedData.size(); i++) {
+            softAssertion.assertThat(expectedData.get(i)).as(expectedData.get(i) + " does not find its match").isIn(actualList);
+            logger.info(expectedData.get(i)+" matches with "+actualList.get(i));
         }
         logger.info("----------");
         softAssertion.assertAll();

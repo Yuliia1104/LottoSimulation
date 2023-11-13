@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static libs.TestData.AUSTRALIA_SATURDAY_LOTTO_TITLE;
 
 public class AustraliaSaturdayLottoPage extends ParentPage{
     @FindBy(xpath = ".//h1[contains(text(), 'Simulate playing Saturday Lotto Australia')]")
@@ -18,7 +19,6 @@ public class AustraliaSaturdayLottoPage extends ParentPage{
     protected String getRelativeUrl() {
         return "/au/lotto-sat";
     }
-
     @Step
     public AustraliaSaturdayLottoPage checkIsRedirectedToAustrSaturdayLottoOption(String title){
         checkURL();
