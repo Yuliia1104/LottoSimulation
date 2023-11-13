@@ -19,11 +19,29 @@ public class AustraliaSaturdayLottoPage extends ParentPage{
     protected String getRelativeUrl() {
         return "/au/lotto-sat";
     }
+
+    @Step
+    public AustraliaSaturdayLottoPage checkAUSaturdayLottoURL(){
+        checkURL();
+        return this;
+    }
+
+    @Step
+    public  AustraliaSaturdayLottoPage isAUSatLottoMainTitleDisplayed(){
+        isElementDisplayed(mainTitleAustrSaturdayLotto);
+        return this;
+    }
+
+    @Step
+    public AustraliaSaturdayLottoPage checkAUSatLottoTitleContent(String title){
+        forTextComparing(title, mainTitleAustrSaturdayLotto);
+        return this;
+    }
     @Step
     public AustraliaSaturdayLottoPage checkIsRedirectedToAustrSaturdayLottoOption(String title){
-        checkURL();
-        isElementDisplayed(mainTitleAustrSaturdayLotto);
-        forTextComparing(title, mainTitleAustrSaturdayLotto);
+        checkAUSaturdayLottoURL();
+        isAUSatLottoMainTitleDisplayed();
+        checkAUSatLottoTitleContent(title);
         logger.info("----------");
         return this;
     }

@@ -39,8 +39,5 @@ public class AddMoneyToAccountTest extends BaseTest {
                 .checkMonetaryOptions(MONETARY_OPTIONS)
                 .checkAddingEachMoneyOptionToAccount(ONE_HUNDRED, ONE_THOUSAND, TEN_THOUSAND, ONE_HUNDRED_THOUSAND)
                 .checkSumOfAllMonetaryOptions(END_BALANCE);
-
-
-
     }
 }

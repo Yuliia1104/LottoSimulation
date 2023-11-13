@@ -20,11 +20,29 @@ public class AustraliaOzLottoPage extends ParentPage{
     protected String getRelativeUrl() {
         return "/au/oz-lotto";
     }
+
+    @Step
+    public  AustraliaOzLottoPage checkAUOZLottoURL(){
+        checkURL();
+        return this;
+    }
+
+    @Step
+    public AustraliaOzLottoPage isOZLottoMainTitleDisplayed(){
+        isElementDisplayed(mainTitleAustrOzLotto);
+        return this;
+    }
+
+    @Step
+    public AustraliaOzLottoPage checkAUOZLottoMainTitleContent(String title){
+        forTextComparing(title, mainTitleAustrOzLotto);
+        return this;
+    }
     @Step
     public AustraliaOzLottoPage checkIsRedirectedToAustralianOzlLotto(String title){
-        checkURL();
-        isElementDisplayed(mainTitleAustrOzLotto);
-        forTextComparing(title, mainTitleAustrOzLotto);
+        checkAUOZLottoURL();
+        isOZLottoMainTitleDisplayed();
+        checkAUOZLottoMainTitleContent(title);
         logger.info("----------");
         return this;
     }
