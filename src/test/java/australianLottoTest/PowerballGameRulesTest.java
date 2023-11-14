@@ -36,7 +36,7 @@ Verify Australian Powerball Lotto Game Rules and Current Jackpot Amount
 @Feature("Australian Powerball Lotto Game Rules and Current Jackpot Amount")
 public class PowerballGameRulesTest extends BaseTest {
     @Description("Verify the Australian Powerball lotto game rules exist and relevant to the game" +
-                 " and providing real-time jackpot information for an informed user experience.")
+                " and providing real-time jackpot information for an informed user experience.")
     @Test
     public void powerballGameRulesJPValueVerification(){
         headerElements.openHomePage(MAIN_TITLE)
@@ -45,7 +45,5 @@ public class PowerballGameRulesTest extends BaseTest {
                       .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE)
                       .checkGameRulesLinkPresence(GAME_RULES_AND_DETAILS_TITLE)
                       .checkGameRulesAndJPContent(GAME_RULES_CONTENT, JP_AMOUNT);
-
-
-    }
 }
+    }
