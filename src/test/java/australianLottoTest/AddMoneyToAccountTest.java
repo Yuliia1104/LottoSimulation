@@ -36,8 +36,10 @@ public class AddMoneyToAccountTest extends BaseTest {
                 .hoverOnAustralia_Element()
                 .clickPowerballOption()
                 .checkIsRedirectedToAustralianPowerballLotto(AUSTRALIA_POWERBALL_TITLE)
+                .scrollDownToMonitoryOption()
                 .checkMonetaryOptions(MONETARY_OPTIONS)
                 .checkAddingEachMoneyOptionToAccount(ONE_HUNDRED, ONE_THOUSAND, TEN_THOUSAND, ONE_HUNDRED_THOUSAND)
+                .refreshAUPowerballLottoPage()
                 .checkSumOfAllMonetaryOptions(END_BALANCE);
 
 
