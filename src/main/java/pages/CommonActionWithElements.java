@@ -46,8 +46,23 @@ public class CommonActionWithElements {
         }
     }
 
+    protected boolean isElementDisplayed(String locator){
+        try{
+            return isElementDisplayed(webDriver.findElement(By.xpath(locator)));
+        }catch (Exception e){
+            logger.info("Element is not displayed");
+            return false;
+        }
+
+    }
+
     protected void forTextComparing(String expectedText, WebElement webElement) {
         Assert.assertEquals("Text does not mach", expectedText, webElement.getText());
+        logger.info(expectedText + " found its match!");
+    }
+
+    protected void forTextComparing(String expectedText, String locator){
+        Assert.assertEquals("Value does not match", expectedText, webDriver.findElement(By.xpath(locator)).getText());
         logger.info(expectedText + " found its match!");
     }
 
