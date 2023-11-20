@@ -12,6 +12,8 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
+import static libs.TestData.JP_NUMERIC_VALEUE;
+
 public class AustarliaPowerballPage extends ParentPage {
 
     @FindBy(xpath = ".//h1[contains(text(), 'Simulate playing the Australian Powerball')]")
@@ -22,7 +24,7 @@ public class AustarliaPowerballPage extends ParentPage {
     private WebElement gameRulesTitle;
     @FindBy(xpath = ".//*[@id='rules']//p[3]")
     private WebElement gameRulesContent;
-    @FindBy(xpath = " .//*[@id='rules']//p[contains(., 'A$8M.')]")
+    @FindBy(xpath = " .//*[@id='rules']//p[contains(., 'A$20M.')]")
     private WebElement jpAmount;
     @FindBy(xpath = ".//*[@class='add-buttons']//button")
     private List<WebElement> monetaryButtons;
@@ -38,6 +40,8 @@ public class AustarliaPowerballPage extends ParentPage {
     private WebElement tenThousandsDollars;
     @FindBy(xpath = ".//*[@class='add-buttons']//button[text()='$100k']")
     private WebElement oneHundrThousDollars;
+
+    private String jpAmountLocator = ".//*[@id='rules']//p[contains(., 'A$%sM.')]";
 
     public AustarliaPowerballPage(WebDriver webDriver) {
         super(webDriver);
@@ -114,7 +118,7 @@ public class AustarliaPowerballPage extends ParentPage {
 
     @Step
     public AustarliaPowerballPage checkJPAmount(String jpValue) {
-        forTextComparing(jpValue, jpAmount);
+        forTextComparing(jpValue, (String.format(jpAmountLocator, JP_NUMERIC_VALEUE)));
         return this;
     }
 

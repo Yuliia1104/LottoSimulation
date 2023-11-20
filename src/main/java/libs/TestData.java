@@ -11,7 +11,8 @@ public class TestData {
     public final static String  AUSTRALIA_MON_AND_WEDN_LOTTO_TITLE = "Simulate playing Monday & Wednesday Lotto Australia";
     public final static String  GAME_RULES_AND_DETAILS_TITLE = "Details & rules";
     public final static String GAME_RULES_CONTENT = "The main balls and the Powerball are drawn from 2 separate barrels. The main barrel contains numbers from 1 to 35, and the Powerball barrel numbers from 1 to 20. 7 numbers are drawn from the main barrel, and one Powerball is drawn from the Powerball barrel.";
-    public final static String JP_AMOUNT = "The Australian Powerball Jackpot currently sits at A$8M.";
+    public final static String JP_NUMERIC_VALEUE = "20";
+    public final static String JP_AMOUNT = String.format("The Australian Powerball Jackpot currently sits at A$%sM.", JP_NUMERIC_VALEUE);
     public final static String ONE_HUNDRED = "$100.00";
     public final static String ONE_THOUSAND = "$1,000.00";
     public final static String TEN_THOUSAND = "$10,000.00";
